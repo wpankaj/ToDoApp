@@ -1,7 +1,8 @@
 <div id="createprojects" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-          {! Form::open(['method'=>'POST', action => 'ProjectController@store', class=> 'form-horizontal']) !}
+          {!! Form::open(['method'=>'POST', 'action' => 'ProjectController@store', 'class' => 'form-horizontal']) !!}
+
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -18,7 +19,7 @@
 
             <div class="modal-footer">
                 <a href="" class="btn btn-success submitbutton"><i class="fa-fa-flash"></i>&nbsp;{{$submitTextButton}}</a>
-                {! Form::close() !}
+                {!! Form::close() !!}
                 <div class="success margin-top-20">
                   @include("errors.errors")
                 </div>
