@@ -74,4 +74,8 @@
 
 
 </div>
+
+<!-modal window added-->
+@include('pages.projects.modals.create.projects', ["submitTextButton"=>"ADD"])
+<!-modal window added-->
 @stop
