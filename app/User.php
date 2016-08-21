@@ -26,12 +26,12 @@ class User extends Authenticatable
 
     public function projects()
     {
-      return this->hasMany("App\Project");
+      return $this->hasMany("App\Project");
       //read it as user has many projects
     }
     public function tasks()
     {
-      return this->hasManyThrough("App\Task", "App\Project");
+      return $this->hasManyThrough("App\Task", "App\Project");
       //read it as a user has many tasks, through projects (user->project->tasks)
     }
 }
