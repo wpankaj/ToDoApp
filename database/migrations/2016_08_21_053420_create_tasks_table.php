@@ -13,8 +13,16 @@ class CreateTasksTable extends Migration
     public function up()
     {
         Schema::create('tasks', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+          $table->increments('id');
+          $table->integer('project_id')->unsigned()->index();
+          $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+          $table->string('name');
+          $table->string('slug');
+          $table->longtext('desc');
+          $table->date('duedate');
+          $table->boolean('completed')->default(false);
+          $table->timestamps();
+          $table->softdeletes();
         });
     }
 

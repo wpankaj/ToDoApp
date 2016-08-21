@@ -13,8 +13,16 @@ class CreateSubtasksTable extends Migration
     public function up()
     {
         Schema::create('subtasks', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+          $table->increments('id');
+          $table->integer('task_id')->unsigned()->index();
+          $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
+          $table->string('name');
+          $table->string('slug');
+          $table->longtext('desc');
+          $table->date('duedate');
+          $table->boolean('completed')->default(false);
+          $table->timestamps();
+          $table->softdeletes();
         });
     }
 
